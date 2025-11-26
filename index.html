@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Biblioteca Técnica de Manuales PDF</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Biblioteca técnica de manuales de reparación en PDF.">
+  <link rel="stylesheet" href="styles.css?v=1">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <!-- Si no tienes logo, puedes borrar el <img> -->
+        <img src="assets/logo.png" alt="Logo" class="brand-logo">
+        <div>
+          <h1 class="brand-title">Biblioteca Técnica</h1>
+          <p class="brand-subtitle">Manuales de reparación en PDF</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- PANEL IZQUIERDO: BUSCADOR + LISTA -->
+    <section class="sidebar">
+      <div class="filters">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Buscar por título, marca, modelo..."
+        >
+
+        <div class="filter-row">
+          <label for="brandFilter">Marca:</label>
+          <select id="brandFilter">
+            <option value="">Todas</option>
+            <!-- Se llena dinámicamente desde JS -->
+          </select>
+        </div>
+
+        <div class="filter-row">
+          <label for="categoryFilter">Tipo:</label>
+          <select id="categoryFilter">
+            <option value="">Todos</option>
+            <!-- Se llena dinámicamente desde JS -->
+          </select>
+        </div>
+      </div>
+
+      <div id="manualList" class="manual-list">
+        <!-- Aquí se pintan los manuales con JS -->
+      </div>
+    </section>
+
+    <!-- PANEL DERECHO: VISOR PDF -->
+    <section class="viewer">
+      <div class="viewer-header">
+        <div>
+          <h2 id="viewerTitle">Selecciona un manual</h2>
+          <p id="viewerMeta" class="viewer-meta">
+            Elige un manual de la lista para verlo aquí.
+          </p>
+        </div>
+        <button id="printBtn" class="btn" disabled>Imprimir PDF</button>
+      </div>
+
+      <div class="viewer-body">
+        <!-- El iframe cargará el PDF -->
+        <iframe
+          id="pdfViewer"
+          title="Visor de manual PDF"
+          class="pdf-frame"
+        ></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Biblioteca técnica — hecho con HTML5, CSS3 y JavaScript.</p>
+  </footer>
+
+  <!-- IMPORTANTE: primero manuals.js luego app.js -->
+  <script src="manuals.js?v=1"></script>
+  <script src="app.js?v=1"></script>
+</body>
+</html>
